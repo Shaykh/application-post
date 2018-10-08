@@ -1,0 +1,18 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-danger': post.loveIts < 0,
+                'list-group-item-success': post.loveIts > 0}"
+    [ngStyle]="{color: getColor()}">
+    <h3>{{ post.title }}
+        <small class="pull-right">{{ post.created_at | date : 'short' }}</small></h3>
+    <p>{{ post.content }}</p>
+    <div class="row">
+        <div class="col-md-8">
+            <button class="btn btn-success" (click)="onLover(true)">Love it!</button>
+            &nbsp;&nbsp;
+            <button class="btn btn-danger" (click)="onLover(false)">Don't love it!</button>
+        </div>
+        <div class="pull-right">
+            <button class="btn btn-danger" (click)="onSupprimer()">Supprimer le Post!</button>
+        </div>
+    </div>
+</li>
